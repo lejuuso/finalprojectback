@@ -21,4 +21,16 @@ public class HelpWantedController {
         repo.deleteById(id);
     }
 
+    @DeleteMapping("/{id}/{email}")
+    public void deleteUsingEmailAsAuthentication(@PathVariable(name="id") Integer id, @PathVariable (name= "email") String email){
+        if(email.equals(repo.getById(id).getEmail())){
+            repo.deleteById(id);
+        }
+
+    }
+    @GetMapping("/dogout")
+    public Iterable<HelpWanted> findAllDogOut(){
+        return repo.findAllByDogOutIsTrue();
+    }
+
 }
