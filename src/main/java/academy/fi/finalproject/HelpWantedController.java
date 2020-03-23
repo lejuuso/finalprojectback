@@ -3,6 +3,7 @@ package academy.fi.finalproject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -14,14 +15,42 @@ public class HelpWantedController {
     @GetMapping("/all")
     public Iterable<HelpWanted>findAll(){return repo.findAll();}
 
+
+    @GetMapping("/groceries")
+    public List<HelpWanted>findAllGroceries(){
+        return repo.findAllByGroceriesTrue();
+    }
+
+    @GetMapping("/dogout")
+    public List<HelpWanted>findAllDogOut(){
+        return repo.findAllByDogOutTrue();
+    }
+
+    @GetMapping("/outdoorcompany")
+    public List<HelpWanted>findAllCompany(){
+        return repo.findAllByOutdoorCompanyTrue();
+    }
+
+    @GetMapping("/trash")
+    public List<HelpWanted>findAllTrashOut(){
+        return repo.findAllByTakingOutTrashTrue();
+    }
+
+    @GetMapping("/other")
+    public List<HelpWanted>findAllOther(){
+        return repo.findAllByOtherTrue();
+    }
+
     @PostMapping("/add")
     public void insert(@RequestBody HelpWanted h){
         repo.save(h);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable(name="id") Integer id){
-        repo.deleteById(id);
+    @DeleteMapping("/{id}/{email}")
+    public void deleteUsingEmailAsAuthentication(@PathVariable(name="id") Integer id, @PathVariable (name= "email") String email) {
+        if (email.equals(repo.getById(id).getEmail())) {
+            repo.deleteById(id);
+        }
     }
 
     @PutMapping("/{id}")
