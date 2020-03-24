@@ -1,0 +1,2 @@
+COPY district(postnumber, postal_district_fin, postal_district_swe, district_name_fin, district_name_swe, municipality, municipality_number)
+    FROM '.\PKS_Postinumeroalueet_2019_PKS_Postinumeroalueet_2019.csv' DELIMITER ',' CSV HEADER;

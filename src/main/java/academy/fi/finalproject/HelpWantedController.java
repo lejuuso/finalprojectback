@@ -53,6 +53,7 @@ public class HelpWantedController {
         }
     }
 
+
     @PutMapping("/{id}")
     public void update(@RequestBody HelpWanted h, @PathVariable(name = "id", required = true) int id){
         Optional<HelpWanted> help = repo.findById(id);
@@ -71,6 +72,5 @@ public class HelpWantedController {
         repo.save(hw);
 
     }
-
 
 }
