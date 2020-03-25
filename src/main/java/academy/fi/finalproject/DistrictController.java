@@ -19,4 +19,10 @@ public class DistrictController {
     public String getPostnumberWithDistrictNameFin(@PathVariable(name = "districtName", required = true) String districtName){
         return repo.findByDistrictNameFin(districtName).getPostnumber();
     }
+
+    @GetMapping("/postnumber/{postnumber}")
+    public String getDistrictNameUsingPostnumber(@PathVariable(name = "postnumber", required = true)String postnumber) {
+        return repo.findByPostnumber(postnumber).getDistrictNameFin();
+    }
+
 }
