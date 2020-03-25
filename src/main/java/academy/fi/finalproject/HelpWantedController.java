@@ -53,6 +53,11 @@ public class HelpWantedController {
         }
     }
 
+    @GetMapping("/{id}")
+    public String getEmailById(@PathVariable(name="id") Integer id){
+        return repo.getById(id).getEmail();
+    }
+
 
     @PutMapping("/{id}")
     public void update(@RequestBody HelpWanted h, @PathVariable(name = "id", required = true) int id){
