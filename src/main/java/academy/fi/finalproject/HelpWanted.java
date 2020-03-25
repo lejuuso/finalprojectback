@@ -14,7 +14,9 @@ public class HelpWanted {
     @Column(nullable = false)
     private String headline;
     private String name;
-    private Integer postcode;
+    private String postcode;
+    @Column (name = "district_name")
+    private String districtName;
     private String email;
     private String description;
     private Boolean groceries;
@@ -48,14 +50,6 @@ public class HelpWanted {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(Integer postcode) {
-        this.postcode = postcode;
     }
 
     public String getEmail() {
@@ -121,4 +115,21 @@ public class HelpWanted {
     public void setOther(Boolean other) {
         this.other = other;
     }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getDistrictName() {
+        return districtName;
+    }
+
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
 }
+
