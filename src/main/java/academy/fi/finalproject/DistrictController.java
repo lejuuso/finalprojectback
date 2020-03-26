@@ -22,7 +22,7 @@ public class DistrictController {
 
     @GetMapping("/postnumber/{postnumber}")
     public String getDistrictNameUsingPostnumber(@PathVariable(name = "postnumber", required = true)String postnumber) {
-        return repo.findByPostnumber(postnumber).getDistrictNameFin();
+        return ("{\"districtName\": \"" +repo.findByPostnumber(postnumber).getDistrictNameFin()+"\"}");
     }
 
 }
