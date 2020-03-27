@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api")
 public class HelpWantedController {
     @Autowired HelpWantedRepository repo;
@@ -46,12 +46,13 @@ public class HelpWantedController {
         repo.save(h);
     }
 
-    @DeleteMapping("/{id}/{email}")
+    @DeleteMapping("{id}/{email}")
     public void deleteUsingEmailAsAuthentication(@PathVariable(name="id") Integer id, @PathVariable (name= "email") String email) {
         if (email.equals(repo.getById(id).getEmail())) {
             repo.deleteById(id);
         }
     }
+
 
     @GetMapping("/{id}")
     public String getEmailById(@PathVariable(name="id") Integer id){
