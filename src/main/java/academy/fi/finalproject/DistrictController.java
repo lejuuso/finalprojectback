@@ -15,14 +15,15 @@ public class DistrictController {
         return repo.findAll();
     }
 
-    @GetMapping("{districtName}")
+
+    @GetMapping("/{districtName}")
     public String getPostnumberWithDistrictNameFin(@PathVariable(name = "districtName", required = true) String districtName){
         return repo.findByDistrictNameFin(districtName).getPostnumber();
     }
 
     @GetMapping("/postnumber/{postnumber}")
-    public String getDistrictNameUsingPostnumber(@PathVariable(name = "postnumber", required = true)String postnumber) {
-        return ("{\"districtName\": \"" +repo.findByPostnumber(postnumber).getDistrictNameFin()+"\"}");
+    public District getDistrictNameUsingPostnumber(@PathVariable(name = "postnumber", required = true)String postnumber) {
+        return repo.findByPostnumber(postnumber);
     }
 
 }
