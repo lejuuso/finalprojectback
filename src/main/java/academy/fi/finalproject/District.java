@@ -20,6 +20,8 @@ public class District {
     private String postalDistrictFin;
     @Column (name = "postal_district_swe")
     private String postalDistrictSwe;
+    private String latitude;
+    private String longitude;
 
     public District() {
     }
@@ -79,4 +81,21 @@ public class District {
     public void setPostalDistrictSwe(String postalDistrictSwe) {
         this.postalDistrictSwe = postalDistrictSwe;
     }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
 }
+

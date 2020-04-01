@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/api")
+@RequestMapping("/helper/api")
 public class HelperController {
     @Autowired HelperRepository repo;
 
