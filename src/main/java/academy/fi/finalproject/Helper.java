@@ -10,14 +10,14 @@ public class Helper {
     @GeneratedValue(strategy = SEQUENCE, generator = "helper_helper_id_seq")
     @SequenceGenerator(name = "helper_helper_id_seq",sequenceName = "helper_helper_id_seq",allocationSize = 1)
     @Column(unique = true, nullable = false)
-    private Integer ide;
+    private Integer id;
     @Column(nullable = false)
     private String headline;
     private String name;
     private String postcode;
     @Column (name = "district_name")
     private String districtName;
-    private String mail;
+    private String email;
     private String description;
     private Boolean groceries;
     private Boolean childCare;
@@ -31,12 +31,12 @@ public class Helper {
 
     public Helper(){};
 
-    public Integer getIde() {
-        return ide;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIde(Integer ide) {
-        this.ide = ide;
+    public void setId(Integer ide) {
+        this.id = ide;
     }
 
     public String getHeadline() {
@@ -71,12 +71,12 @@ public class Helper {
         this.districtName = districtName;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String mail) {
+        this.email = mail;
     }
 
     public String getDescription() {

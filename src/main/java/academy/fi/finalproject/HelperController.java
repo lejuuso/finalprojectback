@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -17,9 +16,9 @@ public class HelperController {
        return repo.findAll();
     }
 
-    @GetMapping("/{ide}")
-    public String getEmailById(@PathVariable(name="ide") Integer ide){
-        return repo.getByIde(ide).getMail();
+    @GetMapping("/{id}")
+    public String getEmailById(@PathVariable(name= "id") Integer id){
+        return repo.getById(id).getEmail();
     }
 
     @PostMapping("/insert")
@@ -27,10 +26,10 @@ public class HelperController {
         repo.save(h);
     }
 
-    @DeleteMapping("{ide}/{mail}")
-    public void deleteUsingEmailAsAuthentication(@PathVariable(name="ide") Integer ide, @PathVariable (name= "mail") String mail) {
-        if (mail.equals(repo.getByIde(ide).getMail())) {
-            repo.deleteById(ide);
+    @DeleteMapping("{id}/{email}")
+    public void deleteUsingEmailAsAuthentication(@PathVariable(name="id") Integer id, @PathVariable (name= "email") String email) {
+        if (email.equals(repo.getById(id).getEmail())) {
+            repo.deleteById(id);
         }
     }
 
